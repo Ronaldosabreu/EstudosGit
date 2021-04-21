@@ -1,0 +1,203 @@
+Site para download: https://git-scm.com/
+ 
+ https://devhints.io/git-log
+ 
+ https://git-scm.com/book/pt-br/v2/Fundamentos-de-Git-Gravando-Altera%C3%A7%C3%B5es-em-Seu-Reposit%C3%B3rio
+
+ https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration
+ 
+#Versão:
+git –version
+
+#Aplicar Configuração
+git config --local user.name rodrigosabreu
+git config --local user.email rodrigo.s.abreu@gmail.com
+
+#Consultar Configuração
+git config user.name
+git config user.email
+
+#Inicia repositório: 
+git init
+
+#Mostrar estado: 
+git status
+
+#Monitorar os arquivos
+git add <<nome arquivos>>
+git add . (todos os arquivos)
+
+#salvar alteracoes com mesagem descritiva
+git commit -m "Criando arquivos index.htm com lista de cursos"
+
+#Ver historico
+git log
+git log --oneline (forma reduzida)
+git log -p (ver alteracoes do comit)
+$ git log --pretty="format: %h %s %ae"
+git log --graph
+
+#ver diferenca de comit
+git diff (ver a difirenca do arquivo alterado sem ainda comitar)
+git diff <<id_comit_inicio>>..<<id_comit_fim>>
+
+#Adicionando .gitignore
+#Crie o arquivo e adicione os arquivos a serem ignorados
+git add .gitignore
+git commit -m "Adicionando .gitignore"
+git status
+
+
+#Configuracando reposito remoto
+git remote (checando o repositorio Resp: não vai encontrar repositorio)
+git init --bare (numa pasta separada "servidor")
+
+#Vinculano o repositorio com servidor
+git remote add local C:/Labs/Git/servidor
+git remote (checando o repositorio Resp: agora vai encontrar o local)
+git remote -v
+
+##Clonando dados do servidor
+git clone C:/Labs/Git/servidor projeto
+
+#Enviando o respositorio local para servidor
+git remote
+git push local master
+
+#Pegar dados do repositorio remoto e traz
+git remote
+git remote rename origin local (alterando reposito para o mesmo do servidor)
+git pull local master
+
+
+
+#Processos enviar para alteracoes de arquivos
+git status
+git add <<nome arquivo>>
+git commit -m <<"descricao da alteracao">>
+git push <<nome reposito>> <<nome branch>>
+
+
+
+#Processos download das alteracoes de arquivos
+git status
+git pull <<nome reposito>> <<nome branch>>
+
+
+
+#Branch´s (ramos) trabalhando em equipe
+#ver o branch
+git branch
+
+#criar branch
+git branch <<nome da branch>>
+
+#mudar de branch
+git checkout <<nome da branch>>
+
+#criar e mudar de branch
+git checkout -b <<nome da branch>>
+
+#Merge unificar o Branch atual com algum outro branch
+git merge <<nome da branch>>
+
+#Rebase trazer os commits para o branch atual, mas antes da brach atual
+git rebase <<nome da branch>>
+
+#desfazer uma alteração que nao foi comitada e nem marcada
+git checkout -- <<arquivo>>
+
+#desfazer uma alteração que foi marcada para comitada (git add)
+git reset Head <<arquivo>> (desfazer o commit)
+git checkout -- <<arquivo>> (desfazer a alteracao)
+
+#desfazer um comitada
+#pegar hash
+git log
+
+git revert <<hash>>
+
+
+#salvar alteracoes temporarias devido a outras demandas
+git stash
+git stash list
+
+#aplicar alteracoes da stach mas permanece na stach
+git stash apply <<numero da stash>>
+#para remover da stash
+git stash drop <<>numero da stash>
+#para aplicar e remover ao mesmo temporarias
+git stash pop
+
+
+#marcar uma release
+git tag -a v0.1.0 -m "lancando a primeira versao beta de cursos"
+git tag (lista as tag)
+
+git push local master 
+git push local v0.1.0
+
+#para o github
+git push origin master
+git push origin v0.1.0
+
+
+
+#Padrão
+git init
+git add .
+git status
+git commit -m ""
+git remote add origin https://github.com/rodrigosabreu/FundamentosArquitetura.git
+git remove -v
+git push origin master
+
+#opicional
+git tag -a v0.1.0 -m "Fundamentos de Arquitetura de Software"
+git push origin v0.1.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##Site com comentos git log para auxiliar
+https://devhints.io/git-log
